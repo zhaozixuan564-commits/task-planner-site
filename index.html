@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-C0-_ro0N.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BhcGQCKp.css">
+    <script type="module" crossorigin src="./assets/index-CJRJpfkc.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Com7oTNI.css">
   </head>
   <body>
     <main id="app">
@@ -25,9 +25,27 @@
       <section class="canvas-import">
         <button type="button" id="import-button">📥 Import from Canvas</button>
         <input type="file" id="import-file" accept=".ics,text/calendar" hidden />
-        <p class="hint">
-          In Canvas, open Calendar → Calendar Feed, open that link to download the file, then pick it here.
-        </p>
+        <details id="import-help" class="import-help">
+          <summary>How do I get this file? (about 1 minute)</summary>
+          <ol>
+            <li>
+              Open your Canvas calendar:
+              <a href="https://canvas.illinois.edu/calendar" target="_blank" rel="noopener">canvas.illinois.edu/calendar</a>
+              (or click <strong>Calendar</strong> in Canvas's left menu).
+            </li>
+            <li>At the bottom of the right-hand column, click <strong>Calendar Feed</strong>.</li>
+            <li>A link appears. Copy it.</li>
+            <li>
+              Paste the link into a new browser tab's address bar and press Enter. A file ending in
+              <strong>.ics</strong> downloads (usually to your Downloads folder).
+            </li>
+            <li>Come back here, click <strong>📥 Import from Canvas</strong>, and pick that file.</li>
+          </ol>
+          <p class="import-help-note">
+            🔒 Keep that link private: anyone who has it can see your Canvas calendar. The file stays on your device;
+            this app never uploads it.
+          </p>
+        </details>
         <p id="import-status" class="import-status" role="status"></p>
         <div id="import-panel" class="import-panel" hidden>
           <h2>Choose assignments to add</h2>
@@ -104,5 +122,48 @@
       <div id="task-sections"></div>
       <p id="empty-message" class="empty">No tasks yet. Add one above to get started.</p>
     </main>
+    <div
+      id="focus-screen"
+      class="focus-screen"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="focus-title"
+    >
+      <div class="focus-content">
+        <p class="focus-label">Focusing on</p>
+        <h2 id="focus-title"></h2>
+        <p id="focus-due" class="focus-due"></p>
+
+        <div id="focus-choose">
+          <p>Choose a timer:</p>
+          <div class="focus-modes">
+            <button type="button" data-mode="count-up">⏱ Count up<span>See how long you've worked</span></button>
+            <button type="button" data-mode="pomodoro">🍅 Pomodoro<span>25 min work, 5 min break</span></button>
+            <button type="button" data-mode="countdown">⏳ Countdown<span id="countdown-hint"></span></button>
+          </div>
+          <button type="button" id="focus-cancel">Cancel</button>
+        </div>
+
+        <div id="focus-running" hidden>
+          <p id="focus-phase" class="focus-phase"></p>
+          <p id="focus-timer" class="focus-timer"></p>
+          <p id="focus-worked" class="focus-worked"></p>
+          <p id="focus-away" class="focus-away" role="status"></p>
+          <div class="focus-buttons">
+            <button type="button" id="focus-pause">Pause</button>
+            <button type="button" id="focus-finish" class="primary">Finish</button>
+          </div>
+          <p class="focus-tip">Tip: also turn on Focus / Do Not Disturb on your phone or Mac to silence other apps.</p>
+        </div>
+
+        <div id="focus-done" hidden>
+          <p id="focus-summary" class="focus-summary"></p>
+          <p>How far along is this task now?</p>
+          <div id="focus-progress" class="focus-progress" role="group" aria-label="Progress"></div>
+          <button type="button" id="focus-save" class="primary">Save</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-F1mAzozo.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-fOUHrsHk.css">
+    <script type="module" crossorigin src="./assets/index-C8Aozd2w.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-dYViF7nO.css">
   </head>
   <body>
     <main id="app">
@@ -110,7 +110,14 @@
         </div>
       </form>
 
-      <h2>Your tasks</h2>
+      <div class="list-header">
+        <h2>Your tasks</h2>
+        <div class="sort-switch" role="group" aria-label="Sort tasks by">
+          <span>Sort by</span>
+          <button type="button" data-sort="priority">Priority</button>
+          <button type="button" data-sort="due-date">Due date</button>
+        </div>
+      </div>
       <details id="course-settings" class="course-settings" hidden>
         <summary>Courses: credits and importance</summary>
         <p class="hint">

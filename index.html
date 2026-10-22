@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-C8Aozd2w.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-dYViF7nO.css">
+    <script type="module" crossorigin src="./assets/index-CDy9HnuJ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DqRqJr2Q.css">
   </head>
   <body>
     <main id="app">
@@ -165,6 +165,11 @@
             <button type="button" id="sound-toggle" aria-expanded="false" aria-controls="sound-panel"></button>
             <div id="sound-panel" class="sound-panel" hidden>
               <div id="sound-choices" class="sound-choices" role="group" aria-label="Focus sound"></div>
+              <div id="now-playing" class="now-playing" hidden>
+                <span>🎵 Now playing: <strong id="now-playing-text"></strong></span>
+                <button type="button" id="piano-next">⏭ Next</button>
+              </div>
+              <p id="sound-error" class="music-error" role="alert"></p>
               <label class="sound-volume">
                 Volume
                 <input id="sound-volume" type="range" min="0" max="1" step="0.05" />
@@ -183,6 +188,11 @@
                   <p id="music-error" class="music-error" role="alert"></p>
                 </form>
               </div>
+              <details class="sound-credits">
+                <summary>Credits</summary>
+                <p>Public-domain piano recordings from Wikimedia Commons:</p>
+                <ul id="sound-credits-list"></ul>
+              </details>
             </div>
           </div>
           <p class="focus-tip">Tip: also turn on Focus / Do Not Disturb on your phone or Mac to silence other apps.</p>

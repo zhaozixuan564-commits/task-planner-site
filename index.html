@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-CDy9HnuJ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DqRqJr2Q.css">
+    <script type="module" crossorigin src="./assets/index-kta7oVHs.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DXX_-gRN.css">
   </head>
   <body>
     <main id="app">
@@ -17,9 +17,59 @@
             <button type="button" id="zoom-reset" title="Back to normal size"></button>
             <button type="button" id="zoom-in" aria-label="Make the page bigger">+</button>
           </div>
+          <button type="button" id="about-button" aria-label="About this app">ℹ️ About</button>
           <button type="button" id="theme-button" class="theme-button"></button>
         </div>
       </header>
+
+      <section id="intro-view" class="intro" aria-labelledby="intro-heading" hidden>
+        <h2 id="intro-heading">Turn a long list of deadlines into a plan for today</h2>
+        <p class="intro-lead">
+          Task Planner is for college students juggling assignments across several courses. Add your tasks, or bring
+          them in from Canvas, and the app shows you what to work on first and helps you stay focused while you do it.
+        </p>
+
+        <ul class="intro-features">
+          <li>
+            <span class="intro-icon" aria-hidden="true">📥</span>
+            <strong>Import from Canvas</strong>
+            <span>Bring in all your upcoming assignments in one step, with hours estimated from the instructions.</span>
+          </li>
+          <li>
+            <span class="intro-icon" aria-hidden="true">🎯</span>
+            <strong>Smart priorities</strong>
+            <span>
+              Every task is ranked by how much work is left, how soon it's due, and how much it counts toward your GPA,
+              with the reason shown.
+            </span>
+          </li>
+          <li>
+            <span class="intro-icon" aria-hidden="true">📅</span>
+            <strong>Clear deadlines</strong>
+            <span>Sort by priority or by due date, with countdowns that turn red when something is due soon.</span>
+          </li>
+          <li>
+            <span class="intro-icon" aria-hidden="true">⏱</span>
+            <strong>Focus mode</strong>
+            <span>A full-screen timer (Pomodoro, count up, or countdown) with piano music, and a record of time worked.</span>
+          </li>
+        </ul>
+
+        <h3>Getting started</h3>
+        <ol class="intro-steps">
+          <li>Click <strong>📥 Import from Canvas</strong>, or type a task into the form.</li>
+          <li>Open <strong>Courses</strong> and set each course's credits, so GPA impact is right.</li>
+          <li>When you sit down to work, tap <strong>▶ Focus</strong> on the task at the top.</li>
+        </ol>
+
+        <p class="intro-privacy">
+          🔒 No account needed. Your tasks are saved only in this browser on this device and never uploaded.
+        </p>
+
+        <button type="button" id="get-started" class="primary get-started">Get started →</button>
+      </section>
+
+      <div id="app-view">
       <p class="subtitle">Add your tasks. The one to work on first is at the top.</p>
 
       <section class="canvas-import">
@@ -128,6 +178,7 @@
       </details>
       <div id="task-sections"></div>
       <p id="empty-message" class="empty">No tasks yet. Add one above to get started.</p>
+      </div>
     </main>
     <div
       id="focus-screen"

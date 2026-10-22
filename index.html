@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-CJRJpfkc.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Com7oTNI.css">
+    <script type="module" crossorigin src="./assets/index-F1mAzozo.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-fOUHrsHk.css">
   </head>
   <body>
     <main id="app">
@@ -153,6 +153,30 @@
           <div class="focus-buttons">
             <button type="button" id="focus-pause">Pause</button>
             <button type="button" id="focus-finish" class="primary">Finish</button>
+          </div>
+          <div class="focus-sound">
+            <button type="button" id="sound-toggle" aria-expanded="false" aria-controls="sound-panel"></button>
+            <div id="sound-panel" class="sound-panel" hidden>
+              <div id="sound-choices" class="sound-choices" role="group" aria-label="Focus sound"></div>
+              <label class="sound-volume">
+                Volume
+                <input id="sound-volume" type="range" min="0" max="1" step="0.05" />
+              </label>
+              <div class="music-link">
+                <a id="music-open" class="music-open" target="_blank" rel="noopener noreferrer" hidden>
+                  🎵 Open my music ↗
+                </a>
+                <button type="button" id="music-change" hidden>Change music link</button>
+                <form id="music-form" class="music-form" novalidate>
+                  <label for="music-input">🎵 My music: paste a Spotify or YouTube link</label>
+                  <div class="music-form-row">
+                    <input id="music-input" type="url" placeholder="https://open.spotify.com/…" />
+                    <button type="submit">Save</button>
+                  </div>
+                  <p id="music-error" class="music-error" role="alert"></p>
+                </form>
+              </div>
+            </div>
           </div>
           <p class="focus-tip">Tip: also turn on Focus / Do Not Disturb on your phone or Mac to silence other apps.</p>
         </div>

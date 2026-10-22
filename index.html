@@ -4,27 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-kta7oVHs.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DXX_-gRN.css">
+    <script type="module" crossorigin src="./assets/index-BwrsC9GB.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CoMfbu25.css">
   </head>
   <body>
     <main id="app">
       <header class="page-header">
-        <h1>Task Planner</h1>
+        <h1 data-i18n="title">Task Planner</h1>
         <div class="display-controls">
-          <div class="zoom-controls" role="group" aria-label="Page size">
-            <button type="button" id="zoom-out" aria-label="Make the page smaller">−</button>
-            <button type="button" id="zoom-reset" title="Back to normal size"></button>
-            <button type="button" id="zoom-in" aria-label="Make the page bigger">+</button>
+          <div class="zoom-controls" role="group" aria-label="Page size" data-i18n-aria="zoomGroup">
+            <button type="button" id="zoom-out" aria-label="Make the page smaller" data-i18n-aria="zoomOut">−</button>
+            <button type="button" id="zoom-reset" title="Back to normal size" data-i18n-title="zoomResetTitle"></button>
+            <button type="button" id="zoom-in" aria-label="Make the page bigger" data-i18n-aria="zoomIn">+</button>
           </div>
-          <button type="button" id="about-button" aria-label="About this app">ℹ️ About</button>
+          <select id="language-select" aria-label="Language" data-i18n-aria="languageLabel"></select>
+          <button type="button" id="about-button" aria-label="About this app" data-i18n-aria="aboutLabel" data-i18n="about">ℹ️ About</button>
           <button type="button" id="theme-button" class="theme-button"></button>
         </div>
       </header>
 
       <section id="intro-view" class="intro" aria-labelledby="intro-heading" hidden>
-        <h2 id="intro-heading">Turn a long list of deadlines into a plan for today</h2>
-        <p class="intro-lead">
+        <h2 id="intro-heading" data-i18n="introHeading">Turn a long list of deadlines into a plan for today</h2>
+        <p class="intro-lead" data-i18n="introLead">
           Task Planner is for college students juggling assignments across several courses. Add your tasks, or bring
           them in from Canvas, and the app shows you what to work on first and helps you stay focused while you do it.
         </p>
@@ -32,152 +33,153 @@
         <ul class="intro-features">
           <li>
             <span class="intro-icon" aria-hidden="true">📥</span>
-            <strong>Import from Canvas</strong>
-            <span>Bring in all your upcoming assignments in one step, with hours estimated from the instructions.</span>
+            <strong data-i18n="featureCanvasTitle">Import from Canvas</strong>
+            <span data-i18n="featureCanvasText">Bring in all your upcoming assignments in one step, with hours estimated from the instructions.</span>
           </li>
           <li>
             <span class="intro-icon" aria-hidden="true">🎯</span>
-            <strong>Smart priorities</strong>
-            <span>
+            <strong data-i18n="featurePriorityTitle">Smart priorities</strong>
+            <span data-i18n="featurePriorityText">
               Every task is ranked by how much work is left, how soon it's due, and how much it counts toward your GPA,
               with the reason shown.
             </span>
           </li>
           <li>
             <span class="intro-icon" aria-hidden="true">📅</span>
-            <strong>Clear deadlines</strong>
-            <span>Sort by priority or by due date, with countdowns that turn red when something is due soon.</span>
+            <strong data-i18n="featureDeadlinesTitle">Clear deadlines</strong>
+            <span data-i18n="featureDeadlinesText">Sort by priority or by due date, with countdowns that turn red when something is due soon.</span>
           </li>
           <li>
             <span class="intro-icon" aria-hidden="true">⏱</span>
-            <strong>Focus mode</strong>
-            <span>A full-screen timer (Pomodoro, count up, or countdown) with piano music, and a record of time worked.</span>
+            <strong data-i18n="featureFocusTitle">Focus mode</strong>
+            <span data-i18n="featureFocusText">A full-screen timer (Pomodoro, count up, or countdown) with piano music, and a record of time worked.</span>
           </li>
         </ul>
 
-        <h3>Getting started</h3>
+        <h3 data-i18n="gettingStarted">Getting started</h3>
         <ol class="intro-steps">
-          <li>Click <strong>📥 Import from Canvas</strong>, or type a task into the form.</li>
-          <li>Open <strong>Courses</strong> and set each course's credits, so GPA impact is right.</li>
-          <li>When you sit down to work, tap <strong>▶ Focus</strong> on the task at the top.</li>
+          <li data-i18n-html="step1">Click <strong>📥 Import from Canvas</strong>, or type a task into the form.</li>
+          <li data-i18n-html="step2">Open <strong>Courses</strong> and set each course's credits, so GPA impact is right.</li>
+          <li data-i18n-html="step3">When you sit down to work, tap <strong>▶ Focus</strong> on the task at the top.</li>
         </ol>
 
-        <p class="intro-privacy">
+        <p class="intro-privacy" data-i18n="privacy">
           🔒 No account needed. Your tasks are saved only in this browser on this device and never uploaded.
         </p>
 
-        <button type="button" id="get-started" class="primary get-started">Get started →</button>
+        <button type="button" id="get-started" class="primary get-started" data-i18n="getStarted">Get started →</button>
       </section>
 
       <div id="app-view">
-      <p class="subtitle">Add your tasks. The one to work on first is at the top.</p>
+      <p class="subtitle" data-i18n="subtitle">Add your tasks. The one to work on first is at the top.</p>
 
       <section class="canvas-import">
-        <button type="button" id="import-button">📥 Import from Canvas</button>
+        <button type="button" id="import-button" data-i18n="importButton">📥 Import from Canvas</button>
         <input type="file" id="import-file" accept=".ics,text/calendar" hidden />
         <details id="import-help" class="import-help">
-          <summary>How do I get this file? (about 1 minute)</summary>
+          <summary data-i18n="importHelpSummary">How do I get this file? (about 1 minute)</summary>
           <ol>
-            <li>
+            <li data-i18n-html="importStep1">
               Open your Canvas calendar:
               <a href="https://canvas.illinois.edu/calendar" target="_blank" rel="noopener">canvas.illinois.edu/calendar</a>
               (or click <strong>Calendar</strong> in Canvas's left menu).
             </li>
-            <li>At the bottom of the right-hand column, click <strong>Calendar Feed</strong>.</li>
-            <li>A link appears. Copy it.</li>
-            <li>
+            <li data-i18n-html="importStep2">At the bottom of the right-hand column, click <strong>Calendar Feed</strong>.</li>
+            <li data-i18n="importStep3">A link appears. Copy it.</li>
+            <li data-i18n-html="importStep4">
               Paste the link into a new browser tab's address bar and press Enter. A file ending in
               <strong>.ics</strong> downloads (usually to your Downloads folder).
             </li>
-            <li>Come back here, click <strong>📥 Import from Canvas</strong>, and pick that file.</li>
+            <li data-i18n-html="importStep5">Come back here, click <strong>📥 Import from Canvas</strong>, and pick that file.</li>
           </ol>
-          <p class="import-help-note">
+          <p class="import-help-note" data-i18n="importPrivacy">
             🔒 Keep that link private: anyone who has it can see your Canvas calendar. The file stays on your device;
             this app never uploads it.
           </p>
         </details>
         <p id="import-status" class="import-status" role="status"></p>
         <div id="import-panel" class="import-panel" hidden>
-          <h2>Choose assignments to add</h2>
+          <h2 data-i18n="chooseAssignments">Choose assignments to add</h2>
           <p id="import-message"></p>
           <div id="import-courses" class="import-courses">
-            <p class="hint">Set each course's credits and importance. Your choices are remembered for next time.</p>
+            <p class="hint" data-i18n="importCoursesHint">Set each course's credits and importance. Your choices are remembered for next time.</p>
             <ul id="import-course-list" class="course-list"></ul>
           </div>
           <div id="import-choices" class="import-choices">
-            <button type="button" id="import-select-all">Select all</button>
-            <button type="button" id="import-select-none">Select none</button>
+            <button type="button" id="import-select-all" data-i18n="selectAll">Select all</button>
+            <button type="button" id="import-select-none" data-i18n="selectNone">Select none</button>
           </div>
           <ul id="import-list" class="import-list"></ul>
           <div class="form-buttons">
             <button type="button" id="import-add" class="primary"></button>
-            <button type="button" id="import-cancel">Cancel</button>
+            <button type="button" id="import-cancel" data-i18n="cancel">Cancel</button>
           </div>
         </div>
       </section>
 
       <form id="task-form" novalidate>
-        <h2 id="form-heading">Add a task</h2>
+        <h2 id="form-heading" data-i18n="addTaskHeading">Add a task</h2>
         <label>
-          Task
-          <input name="title" type="text" placeholder="e.g. ECON 202 homework 3" required />
-          <span class="hint">Start with the course and what it is. Hours and priority are suggested for you.</span>
+          <span data-i18n="taskLabel">Task</span>
+          <input name="title" type="text" placeholder="e.g. ECON 202 homework 3" data-i18n-placeholder="taskPlaceholder" required />
+          <span class="hint" data-i18n="taskHint">Start with the course and what it is. Hours and priority are suggested for you.</span>
         </label>
         <label class="instructions-field">
-          Instructions (optional)
+          <span data-i18n="instructionsLabel">Instructions (optional)</span>
           <textarea
             name="instructions"
             rows="3"
+            data-i18n-placeholder="instructionsPlaceholder"
             placeholder="Paste what the teacher wrote, e.g. &quot;Write a 5–7 page paper using at least 4 sources. Worth 20% of your final grade.&quot;"
           ></textarea>
         </label>
         <label>
-          Deadline
+          <span data-i18n="deadlineLabel">Deadline</span>
           <input name="deadline" type="datetime-local" required />
         </label>
         <label>
-          Estimated hours
+          <span data-i18n="hoursLabel">Estimated hours</span>
           <input name="hours" type="number" min="0.25" max="200" step="0.25" value="1" required />
         </label>
         <label>
-          Priority
+          <span data-i18n="priorityLabel">Priority</span>
           <select name="priority">
-            <option value="auto" selected>Auto (calculated)</option>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
+            <option value="auto" selected data-i18n="priorityAuto">Auto (calculated)</option>
+            <option value="high" data-i18n="priorityHigh">High</option>
+            <option value="medium" data-i18n="priorityMedium">Medium</option>
+            <option value="low" data-i18n="priorityLow">Low</option>
           </select>
         </label>
         <label>
-          % of course grade (optional)
-          <input name="gradeWeight" type="number" min="0" max="100" step="0.5" placeholder="e.g. 20" />
+          <span data-i18n="gradeWeightLabel">% of course grade (optional)</span>
+          <input name="gradeWeight" type="number" min="0" max="100" step="0.5" placeholder="e.g. 20" data-i18n-placeholder="gradeWeightPlaceholder" />
         </label>
         <p id="suggestion-note" class="suggestion-note" aria-live="polite"></p>
         <p id="form-error" class="error" role="alert"></p>
         <div class="form-buttons">
-          <button type="submit" id="submit-button">Add task</button>
-          <button type="button" id="cancel-button" hidden>Cancel</button>
+          <button type="submit" id="submit-button" data-i18n="addTaskButton">Add task</button>
+          <button type="button" id="cancel-button" hidden data-i18n="cancel">Cancel</button>
         </div>
       </form>
 
       <div class="list-header">
-        <h2>Your tasks</h2>
-        <div class="sort-switch" role="group" aria-label="Sort tasks by">
-          <span>Sort by</span>
-          <button type="button" data-sort="priority">Priority</button>
-          <button type="button" data-sort="due-date">Due date</button>
+        <h2 data-i18n="yourTasks">Your tasks</h2>
+        <div class="sort-switch" role="group" aria-label="Sort tasks by" data-i18n-aria="sortGroup">
+          <span data-i18n="sortBy">Sort by</span>
+          <button type="button" data-sort="priority" data-i18n="sortPriority">Priority</button>
+          <button type="button" data-sort="due-date" data-i18n="sortDueDate">Due date</button>
         </div>
       </div>
       <details id="course-settings" class="course-settings" hidden>
-        <summary>Courses: credits and importance</summary>
-        <p class="hint">
+        <summary data-i18n="coursesSummary">Courses: credits and importance</summary>
+        <p class="hint" data-i18n="coursesHint">
           Credits decide how much each assignment affects your GPA. "Important" keeps a course's tasks at Medium or
           above; "Less important" keeps them at Medium or below.
         </p>
         <ul id="course-settings-list" class="course-list"></ul>
       </details>
       <div id="task-sections"></div>
-      <p id="empty-message" class="empty">No tasks yet. Add one above to get started.</p>
+      <p id="empty-message" class="empty" data-i18n="emptyMessage">No tasks yet. Add one above to get started.</p>
       </div>
     </main>
     <div
@@ -189,18 +191,18 @@
       aria-labelledby="focus-title"
     >
       <div class="focus-content">
-        <p class="focus-label">Focusing on</p>
+        <p class="focus-label" data-i18n="focusingOn">Focusing on</p>
         <h2 id="focus-title"></h2>
         <p id="focus-due" class="focus-due"></p>
 
         <div id="focus-choose">
-          <p>Choose a timer:</p>
+          <p data-i18n="chooseTimer">Choose a timer:</p>
           <div class="focus-modes">
-            <button type="button" data-mode="count-up">⏱ Count up<span>See how long you've worked</span></button>
-            <button type="button" data-mode="pomodoro">🍅 Pomodoro<span>25 min work, 5 min break</span></button>
-            <button type="button" data-mode="countdown">⏳ Countdown<span id="countdown-hint"></span></button>
+            <button type="button" data-mode="count-up"><span data-i18n="modeCountUp">⏱ Count up</span><span data-i18n="modeCountUpHint">See how long you've worked</span></button>
+            <button type="button" data-mode="pomodoro"><span data-i18n="modePomodoro">🍅 Pomodoro</span><span data-i18n="modePomodoroHint">25 min work, 5 min break</span></button>
+            <button type="button" data-mode="countdown"><span data-i18n="modeCountdown">⏳ Countdown</span><span id="countdown-hint"></span></button>
           </div>
-          <button type="button" id="focus-cancel">Cancel</button>
+          <button type="button" id="focus-cancel" data-i18n="cancel">Cancel</button>
         </div>
 
         <div id="focus-running" hidden>
@@ -209,51 +211,51 @@
           <p id="focus-worked" class="focus-worked"></p>
           <p id="focus-away" class="focus-away" role="status"></p>
           <div class="focus-buttons">
-            <button type="button" id="focus-pause">Pause</button>
-            <button type="button" id="focus-finish" class="primary">Finish</button>
+            <button type="button" id="focus-pause" data-i18n="pause">Pause</button>
+            <button type="button" id="focus-finish" class="primary" data-i18n="finish">Finish</button>
           </div>
           <div class="focus-sound">
             <button type="button" id="sound-toggle" aria-expanded="false" aria-controls="sound-panel"></button>
             <div id="sound-panel" class="sound-panel" hidden>
-              <div id="sound-choices" class="sound-choices" role="group" aria-label="Focus sound"></div>
+              <div id="sound-choices" class="sound-choices" role="group" aria-label="Focus sound" data-i18n-aria="soundGroup"></div>
               <div id="now-playing" class="now-playing" hidden>
-                <span>🎵 Now playing: <strong id="now-playing-text"></strong></span>
-                <button type="button" id="piano-next">⏭ Next</button>
+                <span><span data-i18n="nowPlaying">🎵 Now playing:</span> <strong id="now-playing-text"></strong></span>
+                <button type="button" id="piano-next" data-i18n="next">⏭ Next</button>
               </div>
               <p id="sound-error" class="music-error" role="alert"></p>
               <label class="sound-volume">
-                Volume
+                <span data-i18n="volume">Volume</span>
                 <input id="sound-volume" type="range" min="0" max="1" step="0.05" />
               </label>
               <div class="music-link">
-                <a id="music-open" class="music-open" target="_blank" rel="noopener noreferrer" hidden>
+                <a id="music-open" class="music-open" target="_blank" rel="noopener noreferrer" hidden data-i18n="openMyMusic">
                   🎵 Open my music ↗
                 </a>
-                <button type="button" id="music-change" hidden>Change music link</button>
+                <button type="button" id="music-change" hidden data-i18n="changeMusicLink">Change music link</button>
                 <form id="music-form" class="music-form" novalidate>
-                  <label for="music-input">🎵 My music: paste a Spotify or YouTube link</label>
+                  <label for="music-input" data-i18n="myMusicLabel">🎵 My music: paste a Spotify or YouTube link</label>
                   <div class="music-form-row">
                     <input id="music-input" type="url" placeholder="https://open.spotify.com/…" />
-                    <button type="submit">Save</button>
+                    <button type="submit" data-i18n="save">Save</button>
                   </div>
                   <p id="music-error" class="music-error" role="alert"></p>
                 </form>
               </div>
               <details class="sound-credits">
-                <summary>Credits</summary>
-                <p>Public-domain piano recordings from Wikimedia Commons:</p>
+                <summary data-i18n="credits">Credits</summary>
+                <p data-i18n="creditsIntro">Public-domain piano recordings from Wikimedia Commons:</p>
                 <ul id="sound-credits-list"></ul>
               </details>
             </div>
           </div>
-          <p class="focus-tip">Tip: also turn on Focus / Do Not Disturb on your phone or Mac to silence other apps.</p>
+          <p class="focus-tip" data-i18n="focusTip">Tip: also turn on Focus / Do Not Disturb on your phone or Mac to silence other apps.</p>
         </div>
 
         <div id="focus-done" hidden>
           <p id="focus-summary" class="focus-summary"></p>
-          <p>How far along is this task now?</p>
-          <div id="focus-progress" class="focus-progress" role="group" aria-label="Progress"></div>
-          <button type="button" id="focus-save" class="primary">Save</button>
+          <p data-i18n="howFarAlong">How far along is this task now?</p>
+          <div id="focus-progress" class="focus-progress" role="group" aria-label="Progress" data-i18n-aria="progressGroup"></div>
+          <button type="button" id="focus-save" class="primary" data-i18n="save">Save</button>
         </div>
       </div>
     </div>

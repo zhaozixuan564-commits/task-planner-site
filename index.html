@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-6o5oZvlj.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Cdpzj6Qv.css">
+    <script type="module" crossorigin src="./assets/index-Dp96B85X.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bi9gO_Ni.css">
   </head>
   <body>
     <main id="app">
@@ -162,6 +162,10 @@
           ></textarea>
         </label>
         <label>
+          <span data-i18n="startDateLabel">Start date (optional)</span>
+          <input name="startDate" type="date" />
+        </label>
+        <label>
           <span data-i18n="deadlineLabel">Deadline</span>
           <input name="deadline" type="datetime-local" required />
         </label>
@@ -213,6 +217,7 @@
           <button type="button" data-sort="priority" data-i18n="sortPriority">Priority</button>
           <button type="button" data-sort="due-date" data-i18n="sortDueDate">Due date</button>
           <button type="button" data-sort="calendar" data-i18n="sortCalendar">📅 Calendar</button>
+          <button type="button" data-sort="gantt" data-i18n="sortGantt">📊 Gantt</button>
         </div>
         <div class="sort-switch general-only" role="group" aria-label="Show" data-i18n-aria="filterGroup">
           <span data-i18n="filterGroup">Show</span>

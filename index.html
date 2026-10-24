@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-DUwmVt7t.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Dw-J_LR0.css">
+    <script type="module" crossorigin src="./assets/index-BIQOgDXb.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BgTYksKf.css">
   </head>
   <body>
     <main id="app">
@@ -67,7 +67,17 @@
           🔒 No account needed. Your tasks are saved only in this browser on this device and never uploaded.
         </p>
 
-        <button type="button" id="get-started" class="primary get-started" data-i18n="getStarted">Get started →</button>
+        <div class="start-choice">
+          <p class="start-question" data-i18n="audienceQuestion">Are you a student?</p>
+          <div class="start-buttons">
+            <button type="button" class="primary get-started" data-audience="student" data-i18n="startStudent">
+              🎓 I'm a student — get started
+            </button>
+            <button type="button" class="primary get-started" data-audience="general" data-i18n="startGeneral">
+              💼 I'm not a student — get started
+            </button>
+          </div>
+        </div>
       </section>
 
       <div id="app-view">
@@ -87,7 +97,7 @@
         <div id="today-result" class="today-result" aria-live="polite"></div>
       </section>
 
-      <section class="canvas-import">
+      <section class="canvas-import student-only">
         <button type="button" id="import-button" data-i18n="importButton">📥 Import from Canvas</button>
         <input type="file" id="import-file" accept=".ics,text/calendar" hidden />
         <details id="import-help" class="import-help">
@@ -133,13 +143,14 @@
         <h2 id="form-heading" data-i18n="addTaskHeading">Add a task</h2>
         <label>
           <span data-i18n="taskLabel">Task</span>
-          <input name="title" type="text" placeholder="e.g. ECON 202 homework 3" data-i18n-placeholder="taskPlaceholder" required />
-          <span class="hint" data-i18n="taskHint">Start with the course and what it is. Hours and priority are suggested for you.</span>
+          <input name="title" id="task-title" type="text" placeholder="e.g. ECON 202 homework 3" data-i18n-placeholder="taskPlaceholder" required />
+          <span class="hint" id="task-hint" data-i18n="taskHint">Start with the course and what it is. Hours and priority are suggested for you.</span>
         </label>
         <label class="instructions-field">
-          <span data-i18n="instructionsLabel">Instructions (optional)</span>
+          <span id="instructions-label" data-i18n="instructionsLabel">Instructions (optional)</span>
           <textarea
             name="instructions"
+            id="task-instructions"
             rows="3"
             data-i18n-placeholder="instructionsPlaceholder"
             placeholder="Paste what the teacher wrote, e.g. &quot;Write a 5–7 page paper using at least 4 sources. Worth 20% of your final grade.&quot;"
@@ -162,7 +173,7 @@
             <option value="low" data-i18n="priorityLow">Low</option>
           </select>
         </label>
-        <label>
+        <label class="student-only">
           <span data-i18n="gradeWeightLabel">% of course grade (optional)</span>
           <input name="gradeWeight" type="number" min="0" max="100" step="0.5" placeholder="e.g. 20" data-i18n-placeholder="gradeWeightPlaceholder" />
         </label>
@@ -182,7 +193,7 @@
           <button type="button" data-sort="due-date" data-i18n="sortDueDate">Due date</button>
         </div>
       </div>
-      <details id="course-settings" class="course-settings" hidden>
+      <details id="course-settings" class="course-settings student-only" hidden>
         <summary data-i18n="coursesSummary">Courses: credits and importance</summary>
         <p class="hint" data-i18n="coursesHint">
           Credits decide how much each assignment affects your GPA. "Important" keeps a course's tasks at Medium or

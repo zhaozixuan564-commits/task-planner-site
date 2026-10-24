@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-BIQOgDXb.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BgTYksKf.css">
+    <script type="module" crossorigin src="./assets/index-B-e_g8-7.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DyLsU2xG.css">
   </head>
   <body>
     <main id="app">
@@ -173,6 +173,13 @@
             <option value="low" data-i18n="priorityLow">Low</option>
           </select>
         </label>
+        <label class="general-only">
+          <span data-i18n="categoryLabel">Category</span>
+          <select name="category">
+            <option value="work" selected data-i18n="categoryWork">💼 Work</option>
+            <option value="personal" data-i18n="categoryPersonal">🏠 Personal</option>
+          </select>
+        </label>
         <label class="student-only">
           <span data-i18n="gradeWeightLabel">% of course grade (optional)</span>
           <input name="gradeWeight" type="number" min="0" max="100" step="0.5" placeholder="e.g. 20" data-i18n-placeholder="gradeWeightPlaceholder" />
@@ -191,6 +198,12 @@
           <span data-i18n="sortBy">Sort by</span>
           <button type="button" data-sort="priority" data-i18n="sortPriority">Priority</button>
           <button type="button" data-sort="due-date" data-i18n="sortDueDate">Due date</button>
+        </div>
+        <div class="sort-switch general-only" role="group" aria-label="Show" data-i18n-aria="filterGroup">
+          <span data-i18n="filterGroup">Show</span>
+          <button type="button" data-filter="all" data-i18n="filterAll">All</button>
+          <button type="button" data-filter="work" data-i18n="categoryWork">💼 Work</button>
+          <button type="button" data-filter="personal" data-i18n="categoryPersonal">🏠 Personal</button>
         </div>
       </div>
       <details id="course-settings" class="course-settings student-only" hidden>

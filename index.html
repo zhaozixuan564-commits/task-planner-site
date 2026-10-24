@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-Dwuwzb0I.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DsADzohp.css">
+    <script type="module" crossorigin src="./assets/index-6o5oZvlj.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cdpzj6Qv.css">
   </head>
   <body>
     <main id="app">
@@ -231,6 +231,20 @@
       </details>
       <div id="task-sections"></div>
       <p id="empty-message" class="empty" data-i18n="emptyMessage">No tasks yet. Add one above to get started.</p>
+
+      <details class="backup">
+        <summary data-i18n="backupHeading">💾 Backup and move to another device</summary>
+        <p class="hint" data-i18n="backupHint">
+          Your tasks are saved only in this browser. Export a backup file to keep them safe, or import it on another
+          device or browser. Importing adds tasks you don't have yet and never removes any.
+        </p>
+        <div class="backup-buttons">
+          <button type="button" id="backup-export" data-i18n="backupExport">⬇ Export backup</button>
+          <button type="button" id="backup-import" data-i18n="backupImport">⬆ Import backup</button>
+          <input type="file" id="backup-file" accept=".json,application/json" hidden />
+        </div>
+        <p id="backup-status" class="backup-status" role="status"></p>
+      </details>
       </div>
     </main>
     <div

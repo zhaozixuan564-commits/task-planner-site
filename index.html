@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-BtEwdt6d.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C0n7DdDq.css">
+    <script type="module" crossorigin src="./assets/index-DGY2IMNF.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C34aOigs.css">
   </head>
   <body>
     <main id="app">
@@ -24,48 +24,40 @@
       </header>
 
       <section id="intro-view" class="intro" aria-labelledby="intro-heading" hidden>
-        <h2 id="intro-heading" data-i18n="introHeading">Turn a long list of deadlines into a plan for today</h2>
-        <p class="intro-lead" data-i18n="introLead">
-          Task Planner is for college students juggling assignments across several courses. Add your tasks, or bring
-          them in from Canvas, and the app shows you what to work on first and helps you stay focused while you do it.
-        </p>
+        <h2 id="intro-heading" data-i18n="introHeading">Turn your deadlines into a plan for today</h2>
+        <p class="intro-lead" data-i18n="introLead">Add your tasks. The app shows what to do first and plans your day.</p>
 
         <ul class="intro-features">
           <li>
             <span class="intro-icon" aria-hidden="true">📥</span>
             <strong data-i18n="featureCanvasTitle">Import from Canvas</strong>
-            <span data-i18n="featureCanvasText">Bring in all your upcoming assignments in one step, with hours estimated from the instructions.</span>
+            <span data-i18n="featureCanvasText">For students: bring in all your assignments in one step.</span>
           </li>
           <li>
             <span class="intro-icon" aria-hidden="true">🎯</span>
             <strong data-i18n="featurePriorityTitle">Smart priorities</strong>
-            <span data-i18n="featurePriorityText">
-              Every task is ranked by how much work is left, how soon it's due, and how much it counts toward your GPA,
-              with the reason shown.
-            </span>
+            <span data-i18n="featurePriorityText">Ranked by work left and how soon it's due, with the reason shown.</span>
           </li>
           <li>
             <span class="intro-icon" aria-hidden="true">📅</span>
             <strong data-i18n="featureDeadlinesTitle">Clear deadlines</strong>
-            <span data-i18n="featureDeadlinesText">Sort by priority or by due date, with countdowns that turn red when something is due soon.</span>
+            <span data-i18n="featureDeadlinesText">See them as a list, 📅 calendar, or 📊 Gantt chart. Countdowns turn red when it's close.</span>
           </li>
           <li>
             <span class="intro-icon" aria-hidden="true">⏱</span>
             <strong data-i18n="featureFocusTitle">Focus mode</strong>
-            <span data-i18n="featureFocusText">A full-screen timer (Pomodoro, count up, or countdown) with piano music, and a record of time worked.</span>
+            <span data-i18n="featureFocusText">A full-screen timer with piano music that records your time.</span>
           </li>
         </ul>
 
         <h3 data-i18n="gettingStarted">Getting started</h3>
         <ol class="intro-steps">
-          <li data-i18n-html="step1">Click <strong>📥 Import from Canvas</strong>, or type a task into the form.</li>
-          <li data-i18n-html="step2">Open <strong>Courses</strong> and set each course's credits, so GPA impact is right.</li>
-          <li data-i18n-html="step3">When you sit down to work, tap <strong>▶ Focus</strong> on the task at the top.</li>
+          <li data-i18n-html="step1">Add a task, or click <strong>📥 Import from Canvas</strong>.</li>
+          <li data-i18n-html="step2">Enter your free time in <strong>📋 Today's plan</strong>.</li>
+          <li data-i18n-html="step3">Tap <strong>▶ Focus</strong> on the first task and start.</li>
         </ol>
 
-        <p class="intro-privacy" data-i18n="privacy">
-          🔒 No account needed. Your tasks are saved only in this browser on this device and never uploaded.
-        </p>
+        <p class="intro-privacy" data-i18n="privacy">🔒 No account needed. Tasks stay in this browser and are never uploaded.</p>
 
         <div class="start-choice">
           <p class="start-question" data-i18n="audienceQuestion">Are you a student?</p>
@@ -102,32 +94,55 @@
         <div id="weekly-review-content"></div>
       </details>
 
-      <section class="canvas-import student-only">
-        <button type="button" id="import-button" data-i18n="importButton">📥 Import from Canvas</button>
-        <input type="file" id="import-file" accept=".ics,text/calendar" hidden />
-        <details id="import-help" class="import-help">
-          <summary data-i18n="importHelpSummary">How do I get this file? (about 1 minute)</summary>
-          <ol>
-            <li data-i18n-html="importStep1">
-              Sign in to your school's Canvas and click <strong>Calendar</strong> in the left menu.
-            </li>
-            <li data-i18n-html="importStep2">At the bottom of the right-hand column, click <strong>Calendar Feed</strong>.</li>
-            <li data-i18n="importStep3">A link appears. Copy it.</li>
-            <li data-i18n-html="importStep4">
-              Paste the link into a new browser tab's address bar and press Enter. A file ending in
-              <strong>.ics</strong> downloads (usually to your Downloads folder).
-            </li>
-            <li data-i18n-html="importStep5">Come back here, click <strong>📥 Import from Canvas</strong>, and pick that file.</li>
-          </ol>
-          <p class="import-help-note" data-i18n="importPrivacy">
-            🔒 Keep that link private: anyone who has it can see your Canvas calendar. The file stays on your device;
-            this app never uploads it.
+      <section class="canvas-import">
+        <div class="student-only">
+          <button type="button" id="import-button" data-i18n="importButton">📥 Import from Canvas</button>
+          <input type="file" id="import-file" accept=".ics,text/calendar" hidden />
+          <details id="import-help" class="import-help">
+            <summary data-i18n="importHelpSummary">How do I get this file? (about 1 minute)</summary>
+            <ol>
+              <li data-i18n-html="importStep1">
+                Sign in to your school's Canvas and click <strong>Calendar</strong> in the left menu.
+              </li>
+              <li data-i18n-html="importStep2">At the bottom of the right-hand column, click <strong>Calendar Feed</strong>.</li>
+              <li data-i18n="importStep3">A link appears. Copy it.</li>
+              <li data-i18n-html="importStep4">
+                Paste the link into a new browser tab's address bar and press Enter. A file ending in
+                <strong>.ics</strong> downloads (usually to your Downloads folder).
+              </li>
+              <li data-i18n-html="importStep5">Come back here, click <strong>📥 Import from Canvas</strong>, and pick that file.</li>
+            </ol>
+            <p class="import-help-note" data-i18n="importPrivacy">
+              🔒 Keep that link private: anyone who has it can see your Canvas calendar. The file stays on your device;
+              this app never uploads it.
+            </p>
+          </details>
+        </div>
+        <details id="paste-import" class="paste-import">
+          <summary data-i18n="pasteSummary">📋 Paste tasks from a website, syllabus, or email</summary>
+          <p class="hint" data-i18n="pasteHint">
+            Copy a list of assignments or tasks from anywhere and paste it here. Each one needs a name and a due date.
           </p>
+          <label class="student-only">
+            <span data-i18n="pasteCourseLabel">Course (optional, added in front of each name)</span>
+            <input id="paste-course" type="text" placeholder="e.g. ECON 202" data-i18n-placeholder="pasteCoursePlaceholder" />
+          </label>
+          <label>
+            <span data-i18n="pasteTextLabel">Text to read</span>
+            <textarea
+              id="paste-text"
+              rows="6"
+              placeholder="Homework Three&#10;Closes: Tuesday, November 3, 2026, 10:45 AM&#10;Essay draft due Nov 13"
+              data-i18n-placeholder="pastePlaceholder"
+            ></textarea>
+          </label>
+          <button type="button" id="paste-find" class="primary" data-i18n="pasteFind">Find tasks</button>
         </details>
         <p id="import-status" class="import-status" role="status"></p>
         <div id="import-panel" class="import-panel" hidden>
-          <h2 data-i18n="chooseAssignments">Choose assignments to add</h2>
+          <h2 id="import-heading"></h2>
           <p id="import-message"></p>
+          <ul id="import-skipped" class="import-skipped"></ul>
           <div id="import-courses" class="import-courses">
             <p class="hint" data-i18n="importCoursesHint">Set each course's credits and importance. Your choices are remembered for next time.</p>
             <ul id="import-course-list" class="course-list"></ul>
@@ -212,13 +227,16 @@
 
       <div class="list-header">
         <h2 data-i18n="yourTasks">Your tasks</h2>
-        <div class="sort-switch" role="group" aria-label="Sort tasks by" data-i18n-aria="sortGroup">
-          <span data-i18n="sortBy">Sort by</span>
+        <div class="view-tabs" role="group" aria-label="Choose a view" data-i18n-aria="viewGroup">
           <button type="button" data-sort="longterm" class="general-only" data-i18n="sortLongTerm">⏳ Long-term</button>
-          <button type="button" data-sort="priority" data-i18n="sortPriority">Priority</button>
-          <button type="button" data-sort="due-date" data-i18n="sortDueDate">Due date</button>
+          <button type="button" data-view="list" data-i18n="viewList">📋 List</button>
           <button type="button" data-sort="calendar" data-i18n="sortCalendar">📅 Calendar</button>
           <button type="button" data-sort="gantt" data-i18n="sortGantt">📊 Gantt</button>
+        </div>
+        <div id="list-sort" class="sort-switch" role="group" aria-label="Sort tasks by" data-i18n-aria="sortGroup">
+          <span data-i18n="sortBy">Sort by</span>
+          <button type="button" data-sort="priority" data-i18n="sortPriority">Priority</button>
+          <button type="button" data-sort="due-date" data-i18n="sortDueDate">Due date</button>
         </div>
         <div class="sort-switch general-only" role="group" aria-label="Show" data-i18n-aria="filterGroup">
           <span data-i18n="filterGroup">Show</span>

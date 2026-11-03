@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-D-P1DjFH.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-D2Esd6OU.css">
+    <script type="module" crossorigin src="./assets/index-BoXAIo3t.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BcHbIeCZ.css">
   </head>
   <body>
     <main id="app">
@@ -28,11 +28,24 @@
         <h2 id="intro-heading" data-i18n="introHeading">Turn your deadlines into a plan for today</h2>
         <p class="intro-lead" data-i18n="introLead">Add your tasks. The app shows what to do first and plans your day.</p>
 
+        <div class="audience-preview" role="group" aria-labelledby="preview-question">
+          <p id="preview-question" class="start-question" data-i18n="previewQuestion">Who will use it?</p>
+          <div class="preview-buttons">
+            <button type="button" data-preview="student" aria-pressed="false" data-i18n="previewStudent">🎓 Student</button>
+            <button type="button" data-preview="general" aria-pressed="false" data-i18n="previewGeneral">💼 Working or other</button>
+          </div>
+        </div>
+
         <ul class="intro-features">
           <li class="student-only">
             <span class="intro-icon" aria-hidden="true">📥</span>
             <strong data-i18n="featureCanvasTitle">Import from Canvas</strong>
             <span data-i18n="featureCanvasText">For students: bring in all your assignments in one step.</span>
+          </li>
+          <li class="general-only">
+            <span class="intro-icon" aria-hidden="true">📋</span>
+            <strong data-i18n="featurePasteTitle">Bring in any list</strong>
+            <span data-i18n="featurePasteText">Paste tasks from an email, website, or notes, and each one gets its due date.</span>
           </li>
           <li>
             <span class="intro-icon" aria-hidden="true">🎯</span>
@@ -61,7 +74,7 @@
         <p class="intro-privacy" data-i18n="privacy">🔒 No account needed. Tasks stay in this browser and are never uploaded.</p>
 
         <div class="start-choice">
-          <p class="start-question" data-i18n="audienceQuestion">Are you a student?</p>
+          <p id="start-question" class="start-question" data-i18n="audienceQuestion">Are you a student?</p>
           <div class="start-buttons">
             <button type="button" class="primary get-started" data-audience="student" data-i18n="startStudent">
               🎓 I'm a student — get started

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-CMT6PKIv.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-W6EzfTcY.css">
+    <script type="module" crossorigin src="./assets/index-SW7hNtBX.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Vcz4f0BY.css">
   </head>
   <body>
     <main id="app">
@@ -30,10 +30,20 @@
         <p class="intro-lead" data-i18n="introLead">Stop wondering what to do next. Add your tasks, set your available time, and Task Planner helps you decide what to work on first.</p>
 
         <div class="audience-preview" role="group" aria-labelledby="preview-question">
-          <p id="preview-question" class="start-question" data-i18n="previewQuestion">Who will use it?</p>
+          <p id="preview-question" class="preview-question" data-i18n="previewQuestion">What would you like to organize?</p>
           <div class="preview-buttons">
-            <button type="button" data-preview="student" aria-pressed="false" data-i18n="previewStudent">🎓 Student</button>
-            <button type="button" data-preview="general" aria-pressed="false" data-i18n="previewGeneral">💼 Working or other</button>
+            <button type="button" class="preview-card" data-preview="student" aria-pressed="false">
+              <span class="preview-art preview-art-student" aria-hidden="true">📚🎓📝</span>
+              <strong data-i18n="previewStudent">Student</strong>
+              <span class="preview-text" data-i18n="previewStudentText">Assignments, exams, projects, and courses.</span>
+              <span class="preview-chip" data-i18n="previewStudentChip">Canvas import</span>
+            </button>
+            <button type="button" class="preview-card" data-preview="general" aria-pressed="false">
+              <span class="preview-art preview-art-general" aria-hidden="true">💼📅☕</span>
+              <strong data-i18n="previewGeneral">Personal &amp; work</strong>
+              <span class="preview-text" data-i18n="previewGeneralText">Projects, meetings, goals, and everyday tasks.</span>
+              <span class="preview-chip" data-i18n="previewGeneralChip">Work planning</span>
+            </button>
           </div>
         </div>
 

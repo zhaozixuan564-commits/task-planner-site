@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-Btw9kEwu.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C1wesvcM.css">
+    <script type="module" crossorigin src="./assets/index-BH6740Qg.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-TlikTh_D.css">
   </head>
   <body>
     <main id="app">
@@ -103,8 +103,15 @@
       </section>
 
       <div id="app-view">
-      <p class="subtitle" data-i18n="subtitle">Add your tasks. The one to work on first is at the top.</p>
 
+      <nav class="app-tabs" role="tablist" aria-label="Sections" data-i18n-aria="tabsLabel">
+        <button type="button" role="tab" id="tab-today" data-tab="today" aria-controls="panel-today" data-i18n="tabToday">📋 Today</button>
+        <button type="button" role="tab" id="tab-tasks" data-tab="tasks" aria-controls="panel-tasks" data-i18n="tabTasks">📝 Tasks</button>
+        <button type="button" role="tab" id="tab-add" data-tab="add" aria-controls="panel-add" data-i18n="tabAdd">➕ Add</button>
+        <button type="button" role="tab" id="tab-more" data-tab="more" aria-controls="panel-more" data-i18n="tabMore">⚙️ More</button>
+      </nav>
+
+      <div id="panel-today" class="tab-panel" role="tabpanel" aria-labelledby="tab-today">
       <section id="dashboard" class="dashboard" aria-labelledby="dashboard-greeting"></section>
 
       <section id="today-plan" class="today-plan" aria-labelledby="today-heading">
@@ -121,15 +128,81 @@
         <div id="today-result" class="today-result" aria-live="polite"></div>
       </section>
 
-      <details id="weekly-review" class="weekly-review">
-        <summary data-i18n="reviewHeading">📝 Weekly review</summary>
-        <div id="weekly-review-content"></div>
-      </details>
+      </div>
 
-      <details id="reminders" class="weekly-review student-only">
-        <summary data-i18n="remindersHeading">⏰ Deadline reminders</summary>
-        <div id="reminders-content"></div>
-      </details>
+      <div id="panel-add" class="tab-panel" role="tabpanel" aria-labelledby="tab-add" hidden>
+      <form id="task-form" novalidate>
+        <h2 id="form-heading" data-i18n="addTaskHeading">Add a task</h2>
+        <label>
+          <span data-i18n="taskLabel">Task</span>
+          <input name="title" id="task-title" type="text" placeholder="e.g. ECON 202 homework 3" data-i18n-placeholder="taskPlaceholder" required />
+          <span class="hint" id="task-hint" data-i18n="taskHint">Start with the course and what it is. Hours and priority are suggested for you.</span>
+        </label>
+        <label>
+          <span data-i18n="deadlineLabel">Deadline</span>
+          <input name="deadline" type="datetime-local" required />
+        </label>
+        <label>
+          <span data-i18n="hoursLabel">Estimated hours</span>
+          <input name="hours" type="number" min="0.25" max="200" step="0.25" value="1" required />
+        </label>
+        <label>
+          <span data-i18n="priorityLabel">Priority</span>
+          <select name="priority">
+            <option value="auto" selected data-i18n="priorityAuto">Auto (calculated)</option>
+            <option value="high" data-i18n="priorityHigh">High</option>
+            <option value="medium" data-i18n="priorityMedium">Medium</option>
+            <option value="low" data-i18n="priorityLow">Low</option>
+          </select>
+        </label>
+        <details id="more-options" class="more-options">
+          <summary data-i18n="moreOptions">More options (notes, start date, repeat, category…)</summary>
+          <div class="more-options-fields">
+            <label class="instructions-field">
+              <span id="instructions-label" data-i18n="instructionsLabel">Instructions (optional)</span>
+              <textarea
+                name="instructions"
+                id="task-instructions"
+                rows="3"
+                data-i18n-placeholder="instructionsPlaceholder"
+                placeholder="Paste what the teacher wrote, e.g. &quot;Write a 5–7 page paper using at least 4 sources. Worth 20% of your final grade.&quot;"
+              ></textarea>
+            </label>
+            <label>
+              <span data-i18n="startDateLabel">Start date (optional)</span>
+              <input name="startDate" type="date" />
+            </label>
+            <label>
+              <span data-i18n="repeatLabel">Repeat</span>
+              <select name="repeat">
+                <option value="" selected data-i18n="repeatNone">Doesn't repeat</option>
+                <option value="daily" data-i18n="repeatDaily">Every day</option>
+                <option value="weekly" data-i18n="repeatWeekly">Every week</option>
+                <option value="monthly" data-i18n="repeatMonthly">Every month</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="categoryLabel">Category</span>
+              <select name="category">
+                <option value="school" data-i18n="categorySchool">🎓 School</option>
+                <option value="work" selected data-i18n="categoryWork">💼 Work</option>
+                <option value="personal" data-i18n="categoryPersonal">🏠 Personal</option>
+              </select>
+            </label>
+            <label class="student-only">
+              <span data-i18n="gradeWeightLabel">% of course grade (optional)</span>
+              <input name="gradeWeight" type="number" min="0" max="100" step="0.5" placeholder="e.g. 20" data-i18n-placeholder="gradeWeightPlaceholder" />
+            </label>
+          </div>
+        </details>
+        <p id="suggestion-note" class="suggestion-note" aria-live="polite"></p>
+        <p id="form-error" class="error" role="alert"></p>
+        <p id="form-status" class="form-status" role="status"></p>
+        <div class="form-buttons">
+          <button type="submit" id="submit-button" data-i18n="addTaskButton">Add task</button>
+          <button type="button" id="cancel-button" hidden data-i18n="cancel">Cancel</button>
+        </div>
+      </form>
 
       <section class="canvas-import">
         <div class="student-only">
@@ -196,72 +269,10 @@
         </div>
       </section>
 
-      <form id="task-form" novalidate>
-        <h2 id="form-heading" data-i18n="addTaskHeading">Add a task</h2>
-        <label>
-          <span data-i18n="taskLabel">Task</span>
-          <input name="title" id="task-title" type="text" placeholder="e.g. ECON 202 homework 3" data-i18n-placeholder="taskPlaceholder" required />
-          <span class="hint" id="task-hint" data-i18n="taskHint">Start with the course and what it is. Hours and priority are suggested for you.</span>
-        </label>
-        <label class="instructions-field">
-          <span id="instructions-label" data-i18n="instructionsLabel">Instructions (optional)</span>
-          <textarea
-            name="instructions"
-            id="task-instructions"
-            rows="3"
-            data-i18n-placeholder="instructionsPlaceholder"
-            placeholder="Paste what the teacher wrote, e.g. &quot;Write a 5–7 page paper using at least 4 sources. Worth 20% of your final grade.&quot;"
-          ></textarea>
-        </label>
-        <label>
-          <span data-i18n="startDateLabel">Start date (optional)</span>
-          <input name="startDate" type="date" />
-        </label>
-        <label>
-          <span data-i18n="deadlineLabel">Deadline</span>
-          <input name="deadline" type="datetime-local" required />
-        </label>
-        <label>
-          <span data-i18n="hoursLabel">Estimated hours</span>
-          <input name="hours" type="number" min="0.25" max="200" step="0.25" value="1" required />
-        </label>
-        <label>
-          <span data-i18n="priorityLabel">Priority</span>
-          <select name="priority">
-            <option value="auto" selected data-i18n="priorityAuto">Auto (calculated)</option>
-            <option value="high" data-i18n="priorityHigh">High</option>
-            <option value="medium" data-i18n="priorityMedium">Medium</option>
-            <option value="low" data-i18n="priorityLow">Low</option>
-          </select>
-        </label>
-        <label>
-          <span data-i18n="repeatLabel">Repeat</span>
-          <select name="repeat">
-            <option value="" selected data-i18n="repeatNone">Doesn't repeat</option>
-            <option value="daily" data-i18n="repeatDaily">Every day</option>
-            <option value="weekly" data-i18n="repeatWeekly">Every week</option>
-            <option value="monthly" data-i18n="repeatMonthly">Every month</option>
-          </select>
-        </label>
-        <label>
-          <span data-i18n="categoryLabel">Category</span>
-          <select name="category">
-            <option value="school" data-i18n="categorySchool">🎓 School</option>
-            <option value="work" selected data-i18n="categoryWork">💼 Work</option>
-            <option value="personal" data-i18n="categoryPersonal">🏠 Personal</option>
-          </select>
-        </label>
-        <label class="student-only">
-          <span data-i18n="gradeWeightLabel">% of course grade (optional)</span>
-          <input name="gradeWeight" type="number" min="0" max="100" step="0.5" placeholder="e.g. 20" data-i18n-placeholder="gradeWeightPlaceholder" />
-        </label>
-        <p id="suggestion-note" class="suggestion-note" aria-live="polite"></p>
-        <p id="form-error" class="error" role="alert"></p>
-        <div class="form-buttons">
-          <button type="submit" id="submit-button" data-i18n="addTaskButton">Add task</button>
-          <button type="button" id="cancel-button" hidden data-i18n="cancel">Cancel</button>
-        </div>
-      </form>
+      </div>
+
+      <div id="panel-tasks" class="tab-panel" role="tabpanel" aria-labelledby="tab-tasks" hidden>
+      <p class="subtitle" data-i18n="subtitle">Add your tasks. The one to work on first is at the top.</p>
 
       <div class="list-header">
         <h2 data-i18n="yourTasks">Your tasks</h2>
@@ -293,9 +304,25 @@
         <ul id="course-settings-list" class="course-list"></ul>
       </details>
       <div id="task-sections"></div>
-      <p id="empty-message" class="empty" data-i18n="emptyMessage">No tasks yet. Add one above to get started.</p>
+      <div id="empty-message" class="empty">
+        <p id="empty-text" data-i18n="emptyMessage">No tasks yet.</p>
+        <button type="button" class="primary" data-go-tab="add" data-i18n="emptyAddButton">➕ Add your first task</button>
+      </div>
 
-      <details class="backup">
+      </div>
+
+      <div id="panel-more" class="tab-panel" role="tabpanel" aria-labelledby="tab-more" hidden>
+      <details id="weekly-review" class="weekly-review" open>
+        <summary data-i18n="reviewHeading">📝 Weekly review</summary>
+        <div id="weekly-review-content"></div>
+      </details>
+
+      <details id="reminders" class="weekly-review" open>
+        <summary data-i18n="remindersHeading">⏰ Deadline reminders</summary>
+        <div id="reminders-content"></div>
+      </details>
+
+      <details class="backup" open>
         <summary data-i18n="backupHeading">💾 Backup and move to another device</summary>
         <p class="hint" data-i18n="backupHint">
           Your tasks are saved only in this browser. Export a backup file to keep them safe, or import it on another
@@ -308,6 +335,7 @@
         </div>
         <p id="backup-status" class="backup-status" role="status"></p>
       </details>
+      </div>
       </div>
     </main>
     <div

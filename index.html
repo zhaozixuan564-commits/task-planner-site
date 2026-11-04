@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-BH6740Qg.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-TlikTh_D.css">
+    <script type="module" crossorigin src="./assets/index-ruzZ5Yml.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-nPd3Ac3J.css">
   </head>
   <body>
     <main id="app">
@@ -108,7 +108,7 @@
         <button type="button" role="tab" id="tab-today" data-tab="today" aria-controls="panel-today" data-i18n="tabToday">📋 Today</button>
         <button type="button" role="tab" id="tab-tasks" data-tab="tasks" aria-controls="panel-tasks" data-i18n="tabTasks">📝 Tasks</button>
         <button type="button" role="tab" id="tab-add" data-tab="add" aria-controls="panel-add" data-i18n="tabAdd">➕ Add</button>
-        <button type="button" role="tab" id="tab-more" data-tab="more" aria-controls="panel-more" data-i18n="tabMore">⚙️ More</button>
+        <button type="button" role="tab" id="tab-more" data-tab="more" aria-controls="panel-more" data-i18n="tabMore">⏰ Reminders</button>
       </nav>
 
       <div id="panel-today" class="tab-panel" role="tabpanel" aria-labelledby="tab-today">
@@ -312,14 +312,14 @@
       </div>
 
       <div id="panel-more" class="tab-panel" role="tabpanel" aria-labelledby="tab-more" hidden>
-      <details id="weekly-review" class="weekly-review" open>
-        <summary data-i18n="reviewHeading">📝 Weekly review</summary>
-        <div id="weekly-review-content"></div>
-      </details>
-
       <details id="reminders" class="weekly-review" open>
         <summary data-i18n="remindersHeading">⏰ Deadline reminders</summary>
         <div id="reminders-content"></div>
+      </details>
+
+      <details id="weekly-review" class="weekly-review" open>
+        <summary data-i18n="reviewHeading">📝 Weekly review</summary>
+        <div id="weekly-review-content"></div>
       </details>
 
       <details class="backup" open>

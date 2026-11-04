@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-ruzZ5Yml.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-nPd3Ac3J.css">
+    <script type="module" crossorigin src="./assets/index-tTzSRPeZ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Do-dMcMR.css">
   </head>
   <body>
     <main id="app">
@@ -82,9 +82,10 @@
 
         <h3 data-i18n="gettingStarted">Getting started</h3>
         <ol class="intro-steps">
-          <li data-i18n-html="step1">Add a task, or click <strong>📥 Import from Canvas</strong>.</li>
-          <li data-i18n-html="step2">Enter your free time in <strong>📋 Today's plan</strong>.</li>
-          <li data-i18n-html="step3">Tap <strong>▶ Focus</strong> on the first task and start.</li>
+          <li data-i18n-html="step1"><strong>➕ Add</strong>: add your tasks, or import them from Canvas.</li>
+          <li data-i18n-html="step2"><strong>📝 Tasks</strong>: see which one to do first.</li>
+          <li data-i18n-html="step3"><strong>📋 Today</strong>: enter your free time, get a plan, and press ▶ Focus.</li>
+          <li data-i18n-html="step4"><strong>⏰ Reminders</strong>: get alerts before deadlines, in your calendar or by email.</li>
         </ol>
 
         <p class="intro-privacy" data-i18n="privacy">🔒 No account needed. Tasks stay in this browser and are never uploaded.</p>
@@ -103,6 +104,17 @@
       </section>
 
       <div id="app-view">
+
+      <section id="guide" class="guide" aria-labelledby="guide-heading">
+        <h2 id="guide-heading" data-i18n="guideHeading">👣 How to use Task Planner</h2>
+        <ol class="guide-steps">
+          <li><button type="button" data-go-tab="add" data-i18n-html="step1"><strong>➕ Add</strong>: add your tasks, or import them from Canvas.</button></li>
+          <li><button type="button" data-go-tab="tasks" data-i18n-html="step2"><strong>📝 Tasks</strong>: see which one to do first.</button></li>
+          <li><button type="button" data-go-tab="today" data-i18n-html="step3"><strong>📋 Today</strong>: enter your free time, get a plan, and press ▶ Focus.</button></li>
+          <li><button type="button" data-go-tab="more" data-i18n-html="step4"><strong>⏰ Reminders</strong>: get alerts before deadlines, in your calendar or by email.</button></li>
+        </ol>
+        <button type="button" id="guide-dismiss" class="primary" data-i18n="guideDismiss">Got it</button>
+      </section>
 
       <nav class="app-tabs" role="tablist" aria-label="Sections" data-i18n-aria="tabsLabel">
         <button type="button" role="tab" id="tab-today" data-tab="today" aria-controls="panel-today" data-i18n="tabToday">📋 Today</button>

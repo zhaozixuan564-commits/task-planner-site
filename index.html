@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-5GtHWc4l.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CWZ5JlcB.css">
+    <script type="module" crossorigin src="./assets/index-DdP2QjJ8.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BfuDDso1.css">
   </head>
   <body>
     <main id="app">
@@ -104,6 +104,11 @@
       </section>
 
       <div id="app-view">
+      <button type="button" id="quick-add-open" class="quick-add-fab" aria-label="Quick add a task" title="Quick add a task" data-i18n-aria="quickAddOpen" data-i18n-title="quickAddOpen">＋</button>
+      <dialog id="quick-add-dialog" class="quick-add-dialog" aria-labelledby="quick-add-heading">
+        <button type="button" id="quick-add-close" class="quick-add-close" aria-label="Cancel" data-i18n-aria="cancel">✕</button>
+      </dialog>
+      <p id="quick-add-toast" class="quick-add-toast" role="status" hidden></p>
 
       <section id="guide" class="guide" aria-labelledby="guide-heading">
         <h2 id="guide-heading" data-i18n="guideHeading">👣 How to use Task Planner</h2>

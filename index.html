@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-CLI9x4c_.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BfuDDso1.css">
+    <script type="module" crossorigin src="./assets/index-BH32c9ME.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B9veqTGv.css">
   </head>
   <body>
     <main id="app">
@@ -125,6 +125,19 @@
         <span id="sync-banner-text"></span>
         <button type="button" id="sync-banner-open" class="primary" data-i18n="syncBannerOpen">See them</button>
         <button type="button" id="sync-banner-later" data-i18n="syncBannerLater">Later</button>
+      </div>
+      <div id="submitted-banner" class="sync-banner submitted-banner" role="status" hidden>
+        <span id="submitted-banner-text"></span>
+        <button type="button" id="submitted-banner-open" class="primary" data-i18n="submittedBannerOpen">Review</button>
+        <button type="button" id="submitted-banner-later" data-i18n="syncBannerLater">Later</button>
+        <form id="submitted-choices" class="submitted-choices" hidden>
+          <p class="hint" data-i18n="submittedChoicesHint">Canvas says you submitted these. Uncheck any that aren't really finished.</p>
+          <ul id="submitted-list"></ul>
+          <div class="submitted-actions">
+            <button type="submit" class="primary" data-i18n="submittedMarkDone">Mark checked ones done</button>
+            <button type="button" id="submitted-cancel" data-i18n="cancel">Cancel</button>
+          </div>
+        </form>
       </div>
 
       <nav class="app-tabs" role="tablist" aria-label="Sections" data-i18n-aria="tabsLabel">
@@ -329,6 +342,37 @@
               <button type="button" id="sync-off" data-i18n="syncTurnOff">Turn off</button>
             </div>
             <p id="sync-status" class="sync-status" role="status"></p>
+            <div id="submitted-setup" class="submitted-setup" hidden>
+              <h4 data-i18n="submittedHeading">✅ Mark assignments done when you submit them on Canvas</h4>
+              <p class="hint" data-i18n="submittedHint">
+                The Calendar Feed link doesn't say what you've submitted. To check, Task Planner needs a Canvas access token.
+              </p>
+              <details class="import-help">
+                <summary data-i18n="submittedHowTo">How do I get a token?</summary>
+                <ol>
+                  <li data-i18n="submittedStep1">In Canvas, open Account → Settings.</li>
+                  <li data-i18n="submittedStep2">Under Approved Integrations, click + New Access Token.</li>
+                  <li data-i18n="submittedStep3">Purpose: Task Planner. You can leave the expiry date empty, or pick the end of the semester.</li>
+                  <li data-i18n="submittedStep4">Click Generate Token, copy the long token, and paste it below.</li>
+                </ol>
+              </details>
+              <form id="token-form" class="sync-form" novalidate>
+                <label>
+                  <span data-i18n="submittedTokenLabel">Canvas access token</span>
+                  <input id="token-input" type="password" autocomplete="off" spellcheck="false" placeholder="1234~…" />
+                </label>
+                <button type="submit" class="primary" data-i18n="syncTurnOn">Turn on</button>
+              </form>
+              <div id="token-on" class="sync-on" hidden>
+                <button type="button" id="token-forget" data-i18n="submittedForget">Forget token</button>
+              </div>
+              <p id="token-status" class="sync-status" role="status"></p>
+              <p class="import-help-note" data-i18n="submittedPrivacy">
+                🔒 The token works like a password for your Canvas account: never share it. It stays in this browser and is only
+                sent to this app's own Google script to ask Canvas what you submitted; the script doesn't save it. You can delete
+                it any time in Canvas settings.
+              </p>
+            </div>
             <p class="import-help-note" data-i18n="syncPrivacy">
               🔒 The link stays in this browser. To read Canvas, it is sent to this app's own Google script, which doesn't save it.
             </p>

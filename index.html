@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-CcKK5P0O.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CKv7atbH.css">
+    <script type="module" crossorigin src="./assets/index-uDIAhKps.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CM4TvWei.css">
   </head>
   <body>
     <main id="app">
@@ -333,7 +333,7 @@
             <h3 id="sync-heading" data-i18n="syncSummary">🔄 Get new Canvas assignments automatically</h3>
             <p class="hint" data-i18n="syncHint">
               Paste your Canvas Calendar Feed link once (steps 1–3 above). Each time you open Task Planner, it checks Canvas and
-              asks before adding anything new.
+              asks before adding anything new. Assignments already in your list are never added twice.
             </p>
             <form id="sync-form" class="sync-form" novalidate>
               <label>
@@ -344,7 +344,11 @@
             </form>
             <div id="sync-on" class="sync-on" hidden>
               <button type="button" id="sync-check" data-i18n="syncCheckNow">Check now</button>
-              <button type="button" id="sync-off" data-i18n="syncTurnOff">Turn off</button>
+              <button type="button" id="sync-off" data-i18n="syncTurnOff">Disconnect &amp; delete link</button>
+            </div>
+            <div id="sync-summary" class="sync-summary" hidden>
+              <p id="sync-summary-when" class="sync-summary-when"></p>
+              <p id="sync-summary-counts" class="sync-summary-counts"></p>
             </div>
             <p id="sync-status" class="sync-status" role="status"></p>
             <div id="submitted-setup" class="submitted-setup" hidden>

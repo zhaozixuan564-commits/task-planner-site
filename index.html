@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-0_Zdf9a8.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-L2sUV9L4.css">
+    <script type="module" crossorigin src="./assets/index-B6HYVwsR.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DS_fH7V1.css">
   </head>
   <body>
     <main id="app">
@@ -351,40 +351,64 @@
               <p id="sync-summary-counts" class="sync-summary-counts"></p>
             </div>
             <p id="sync-status" class="sync-status" role="status"></p>
-            <div id="submitted-setup" class="submitted-setup" hidden>
+            <p class="import-help-note" data-i18n="syncPrivacy">
+              🔒 The link stays in this browser. To read Canvas, it is sent to this app's own Google script, which doesn't save it.
+            </p>
+            <div id="submitted-setup" class="submitted-setup">
               <h4 data-i18n="submittedHeading">✅ Mark assignments done when you submit them on Canvas</h4>
               <p class="hint" data-i18n="submittedHint">
-                The Calendar Feed link doesn't say what you've submitted. To check, Task Planner needs a Canvas access token.
+                Drag this button to your bookmarks bar. Then, while you're signed in to Canvas, click the bookmark: Task Planner
+                opens and asks before marking anything done. Works in computer browsers.
               </p>
+              <p class="bookmarklet-row">
+                <a id="submitted-bookmarklet" class="bookmarklet" href="#" draggable="true" data-i18n="submittedBookmarkName"
+                  >✅ Canvas → Task Planner</a
+                >
+              </p>
+              <p id="bookmarklet-status" class="sync-status" role="status"></p>
               <details class="import-help">
-                <summary data-i18n="submittedHowTo">How do I get a token?</summary>
+                <summary data-i18n="submittedBookmarkHowTo">Can't see a bookmarks bar?</summary>
+                <ol>
+                  <li data-i18n="submittedBookmarkStep1">Chrome or Edge: press Ctrl+Shift+B (Mac: ⌘+Shift+B). Safari: View → Show Favorites Bar.</li>
+                  <li data-i18n="submittedBookmarkStep2">Drag the green button above onto the bar.</li>
+                  <li data-i18n="submittedBookmarkStep3">Open any Canvas page (signed in) and click the bookmark.</li>
+                </ol>
+              </details>
+              <p class="import-help-note" data-i18n="submittedBookmarkPrivacy">
+                🔒 The bookmark reads your own Canvas while you're signed in and sends only the numbers of submitted assignments
+                back to this page. No password or token, and nothing goes through a server.
+              </p>
+              <details id="token-option" class="import-help" hidden>
+                <summary data-i18n="submittedTokenOption">My school lets me make Canvas access tokens</summary>
+                <p class="hint" data-i18n="submittedTokenHint">
+                  Instead of the bookmark, Task Planner can check by itself each time it syncs, using a Canvas access token. Many
+                  schools (Illinois included) turn tokens off.
+                </p>
+                <p class="hint" data-i18n="submittedHowTo">How do I get a token?</p>
                 <ol>
                   <li data-i18n="submittedStep1">In Canvas, open Account → Settings.</li>
                   <li data-i18n="submittedStep2">Under Approved Integrations, click + New Access Token.</li>
                   <li data-i18n="submittedStep3">Purpose: Task Planner. You can leave the expiry date empty, or pick the end of the semester.</li>
                   <li data-i18n="submittedStep4">Click Generate Token, copy the long token, and paste it below.</li>
                 </ol>
+                <form id="token-form" class="sync-form" novalidate>
+                  <label>
+                    <span data-i18n="submittedTokenLabel">Canvas access token</span>
+                    <input id="token-input" type="password" autocomplete="off" spellcheck="false" placeholder="1234~…" />
+                  </label>
+                  <button type="submit" class="primary" data-i18n="syncTurnOn">Turn on</button>
+                </form>
+                <div id="token-on" class="sync-on" hidden>
+                  <button type="button" id="token-forget" data-i18n="submittedForget">Forget token</button>
+                </div>
+                <p id="token-status" class="sync-status" role="status"></p>
+                <p class="import-help-note" data-i18n="submittedPrivacy">
+                  🔒 The token works like a password for your Canvas account: never share it. It stays in this browser and is only
+                  sent to this app's own Google script to ask Canvas what you submitted; the script doesn't save it. You can delete
+                  it any time in Canvas settings.
+                </p>
               </details>
-              <form id="token-form" class="sync-form" novalidate>
-                <label>
-                  <span data-i18n="submittedTokenLabel">Canvas access token</span>
-                  <input id="token-input" type="password" autocomplete="off" spellcheck="false" placeholder="1234~…" />
-                </label>
-                <button type="submit" class="primary" data-i18n="syncTurnOn">Turn on</button>
-              </form>
-              <div id="token-on" class="sync-on" hidden>
-                <button type="button" id="token-forget" data-i18n="submittedForget">Forget token</button>
-              </div>
-              <p id="token-status" class="sync-status" role="status"></p>
-              <p class="import-help-note" data-i18n="submittedPrivacy">
-                🔒 The token works like a password for your Canvas account: never share it. It stays in this browser and is only
-                sent to this app's own Google script to ask Canvas what you submitted; the script doesn't save it. You can delete
-                it any time in Canvas settings.
-              </p>
             </div>
-            <p class="import-help-note" data-i18n="syncPrivacy">
-              🔒 The link stays in this browser. To read Canvas, it is sent to this app's own Google script, which doesn't save it.
-            </p>
           </section>
         </div>
         <details id="paste-import" class="paste-import">

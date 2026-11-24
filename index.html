@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Planner</title>
-    <script type="module" crossorigin src="./assets/index-BeGZ9t84.js"></script>
+    <script type="module" crossorigin src="./assets/index-DPxsjnQt.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CfwIR8yT.css">
   </head>
   <body>
@@ -308,7 +308,7 @@
 
       <section class="canvas-import">
         <div class="student-only">
-          <button type="button" id="import-button" data-i18n="importButton">📥 Import from Canvas</button>
+          <button type="button" id="import-button" data-i18n="importButton">📥 Import a calendar file</button>
           <input type="file" id="import-file" accept=".ics,text/calendar" hidden />
           <details id="import-help" class="import-help">
             <summary data-i18n="importHelpSummary">How do I get this file? (about 1 minute)</summary>
@@ -322,11 +322,16 @@
                 Paste the link into a new browser tab's address bar and press Enter. A file ending in
                 <strong>.ics</strong> downloads (usually to your Downloads folder).
               </li>
-              <li data-i18n-html="importStep5">Come back here, click <strong>📥 Import from Canvas</strong>, and pick that file.</li>
+              <li data-i18n-html="importStep5">Come back here, click <strong>📥 Import a calendar file</strong>, and pick that file.</li>
             </ol>
             <p class="import-help-note" data-i18n="importPrivacy">
               🔒 Keep that link private: anyone who has it can see your Canvas calendar. The file stays on your device;
               this app never uploads it.
+            </p>
+            <p class="import-help-note" data-i18n="importOtherCalendars">
+              🏫 School doesn't use Canvas? Moodle, Blackboard, Brightspace, Google Calendar, and Outlook can all export a
+              calendar file (.ics). Pick it with the same button. Since the app can't tell assignments from other events
+              there, every upcoming event is listed and you tick the ones to add.
             </p>
           </details>
           <section id="canvas-sync" class="canvas-sync" aria-labelledby="sync-heading">
